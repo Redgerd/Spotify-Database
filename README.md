@@ -3,6 +3,7 @@
 ## Overview
 
 This script facilitates the creation of a MySQL database using a Spotify Songs dataset. The process involves several stages to ensure data accuracy, integrity, and adherence to database normalization principles.
+[https://essay.utwente.nl/75422/1/NIJKAMP_BA_IBA.pdf] was used as reference
 
 ### Stage 1: Historical Layer (db_stg0)
 
