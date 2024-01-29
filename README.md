@@ -2,27 +2,64 @@
 
 ## Overview
 
-This script is designed to create a MySQL database using a Spotify Songs dataset. The database is normalized into tables representing tracks, playlists, albums, and genres, adhering to the principles of database normalization.
+This script facilitates the creation of a MySQL database using a Spotify Songs dataset. The process involves several stages to ensure data accuracy, integrity, and adherence to database normalization principles.
+
+### Stage 1: Historical Layer (db_stg0)
+
+The entire Spotify Songs dataset is initially loaded into a database named `db_stg0`, serving as the Historical Layer. This layer stores raw data without any transformations, preserving the complete historical record.
+
+### Stage 2: Integration Layer (db_stg1)
+
+Data is then migrated to the Integration Layer (`db_stg1`) with the implementation of triggers. These triggers identify and separate records with incorrect formats or inconsistencies into designated tables. This ensures that data integrity is maintained, and any anomalies are properly handled.
+
+### Stage 3: Access Layer (db_stg2)
+
+Finally, the database is normalized into tables within the Access Layer (`db_stg2`). This layer is designed to enhance user accessibility and analytical capabilities by representing tracks, playlists, albums, and genres in a structured format. The normalization adheres to best practices, ensuring efficient storage and retrieval of data.
 
 # Database Structure
-The normalized database consists of the following tables:
 
-## Track:
+The normalized database comprises the following tables:
 
-Columns: track_id, track_name, track_artist, track_popularity, danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo, duration_ms, playlist_uid, track_album_id
+## Track Table:
 
-## Playlist:
+Columns:
+- track_id
+- track_name
+- track_artist
+- track_popularity
+- danceability
+- energy
+- key
+- loudness
+- mode
+- speechiness
+- acousticness
+- instrumentalness
+- liveness
+- valence
+- tempo
+- duration_ms
+- playlist_uid
+- track_album_id
 
-Columns: playlist_id, playlist_name, playlist_uid
+## Playlist Table:
 
-## Album:
+Columns:
+- playlist_id
+- playlist_name
+- playlist_uid
 
-Columns: track_album_id, track_album_name, track_album_release_date
+## Album Table:
 
-## Genre:
+Columns:
+- track_album_id
+- track_album_name
+- track_album_release_date
 
-Columns: playlist_genre, playlist_subgenre
+## Genre Table:
 
+Columns:
+- playlist_genre
+- playlist_subgenre
 
-![image](https://github.com/Redgerd/Spotify-Database/assets/117646793/783df12e-9dea-4cba-be2d-c549f38f1ecd)
-
+  ![image](https://github.com/Redgerd/Spotify-Database/assets/117646793/df56e477-c9dd-40dd-93e3-c4852b4623ca)
